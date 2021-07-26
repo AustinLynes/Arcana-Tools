@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="core">
+      <UniqueIdentifier>{4E40957C-3A77-960D-E363-7C10CF79120F}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Application">
+      <UniqueIdentifier>{116127B6-FD59-4608-268C-2B8D12E42514}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="core\Entry">
+      <UniqueIdentifier>{6F21854E-5BD9-C69B-C4E0-9FF7B0B7618C}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Engine.h" />
+    <ClInclude Include="src\core\Application\Application.h">
+      <Filter>core\Application</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\core\Application\Application.cpp">
+      <Filter>core\Application</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\Entry\Entry.cpp">
+      <Filter>core\Entry</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
