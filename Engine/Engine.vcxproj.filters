@@ -16,6 +16,8 @@
     <ClInclude Include="src\core\Application\Application.h">
       <Filter>core\Application</Filter>
     </ClInclude>
+    <ClInclude Include="src\core\Debugging\Logger.h" />
+    <ClInclude Include="src\pch.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\core\Application\Application.cpp">
@@ -24,5 +26,6 @@
     <ClCompile Include="src\core\Entry\Entry.cpp">
       <Filter>core\Entry</Filter>
     </ClCompile>
+    <ClCompile Include="src\core\Debugging\Logger.cpp" />
   </ItemGroup>
 </Project>

@@ -1,11 +1,16 @@
 #include "Core/Application/Application.h"
+#include <Windows.h>
 
 extern Arcana::Application* Arcana::CreateApplication();
 
-int main() {
-	auto app = Arcana::CreateApplication();
+int WINAPI WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR nCmdLine, int nShowCommnad) {
+	auto app = Arcana::CreateApplication()->GetInstance();
 	app->Startup();
-	app->Run();
+	while (app->ShouldRun())
+	{
+		app->Run();
+	}
+	
 	app->Shutdown();
 	delete app;
 	return 0;

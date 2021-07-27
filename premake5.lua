@@ -24,7 +24,7 @@ workspace "Arcana Tools"
 --  
 project "Arcana"
     location "Arcana"
-    kind "consoleapp"
+    kind "windowedApp"
     language "c++"
     
     targetdir "bin/%{cfg.buildcfg}-%{cfg.buildsystem}-x64/%{prj.name}"

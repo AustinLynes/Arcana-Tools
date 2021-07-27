@@ -138,10 +138,13 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="src\core\Debugging\Logger.h" />
+    <ClInclude Include="src\pch.h" />
     <ClInclude Include="src\Engine.h" />
     <ClInclude Include="src\core\Application\Application.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\core\Debugging\Logger.cpp" />
     <ClCompile Include="src\core\Application\Application.cpp" />
     <ClCompile Include="src\core\Entry\Entry.cpp" />
   </ItemGroup>
