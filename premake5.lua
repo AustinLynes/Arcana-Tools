@@ -24,7 +24,7 @@ workspace "Arcana Tools"
 --  
 project "Arcana"
     location "Arcana"
-    kind "consoleapp"
+    kind "windowedApp"
     language "c++"
     
     targetdir "bin/%{cfg.buildcfg}-%{cfg.buildsystem}-x64/%{prj.name}"
@@ -68,7 +68,7 @@ project "Arcana"
         -- 11
 
         -- 12
-        "yaml-cppd.lib"
+        -- "yaml-cppd.lib"
 
     }
     defines{
@@ -103,12 +103,13 @@ project "Arcana"
         optimize "on"
         symbols "off"
         buildoptions "/MD"
+
     
 -- Engine
 --
 project "Engine"
     location "Engine"
-    kind "sharedLib"
+    kind "staticLib"
     language "c++"
 
     targetdir "bin/%{cfg.buildcfg}-%{cfg.buildsystem}-x64/%{prj.name}"
@@ -142,7 +143,7 @@ project "Engine"
         -- 11
 
         -- 12
-        "yaml-cppd.lib"
+        -- "yaml-cppd.lib"
     }
     filter "system:windows"
         cppdialect "c++latest"
@@ -150,7 +151,8 @@ project "Engine"
         systemversion "latest"
 
         defines {
-            "WIN32"
+            "WIN32",
+            "ARCANA_ENGINE"
         }
     filter "configurations:Debug"
         defines { 
@@ -181,7 +183,7 @@ project "Engine"
 --
 project "ArcaneLab"
     location "Tools/ArcaneLab"
-    kind "sharedLib"
+    kind "staticLib"
     language "c++"
 
     targetdir "bin/%{cfg.buildcfg}-%{cfg.buildsystem}-x64/%{prj.name}"
@@ -215,7 +217,7 @@ project "ArcaneLab"
         -- 11
 
         -- 12
-        "yaml-cppd.lib"
+        -- "yaml-cppd.lib"
     }
     filter "system:windows"
         cppdialect "c++latest"
