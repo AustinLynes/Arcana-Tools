@@ -75,8 +75,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;ARCANA_ENGINE;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;dependencies;..\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;..\dependencies\include;dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
@@ -88,7 +88,7 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -96,8 +96,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;ARCANA_ENGINE;_DEBUG;NDEBUG;DRENGR_API;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;dependencies;..\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;_DEBUG;NDEBUG;DRENGR_API;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;..\dependencies\include;dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <DebugInformationFormat>None</DebugInformationFormat>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
@@ -115,7 +115,7 @@
       <OptimizeReferences>true</OptimizeReferences>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
@@ -123,8 +123,8 @@
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>WIN32;ARCANA_ENGINE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>src;dependencies;..\dependencies\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>WIN32;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>src;..\dependencies\include;dependencies;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <LanguageStandard>stdcpplatest</LanguageStandard>
@@ -133,20 +133,127 @@
       <SubSystem>Windows</SubSystem>
     </Link>
     <Lib>
-      <AdditionalDependencies>opengl32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;yaml-cppd.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <AdditionalLibraryDirectories>..\dependencies\lib;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClInclude Include="src\core\Debugging\Logger.h" />
-    <ClInclude Include="src\pch.h" />
-    <ClInclude Include="src\Engine.h" />
-    <ClInclude Include="src\core\Application\Application.h" />
+    <ClInclude Include="dependencies\imgui\imconfig.h" />
+    <ClInclude Include="dependencies\imgui\imgui.h" />
+    <ClInclude Include="dependencies\imgui\imgui_impl_glfw.h" />
+    <ClInclude Include="dependencies\imgui\imgui_impl_opengl3.h" />
+    <ClInclude Include="dependencies\imgui\imgui_internal.h" />
+    <ClInclude Include="dependencies\imgui\imstb_rectpack.h" />
+    <ClInclude Include="dependencies\imgui\imstb_textedit.h" />
+    <ClInclude Include="dependencies\imgui\imstb_truetype.h" />
+    <ClInclude Include="dependencies\imgui\misc\cpp\imgui_stdlib.h" />
+    <ClInclude Include="dependencies\imguizmo\ImCurveEdit.h" />
+    <ClInclude Include="dependencies\imguizmo\ImGradient.h" />
+    <ClInclude Include="dependencies\imguizmo\ImGuizmo.h" />
+    <ClInclude Include="dependencies\imguizmo\ImSequencer.h" />
+    <ClInclude Include="dependencies\imguizmo\ImZoomSlider.h" />
+    <ClInclude Include="dependencies\stbi_image\stbi_image.h" />
+    <ClInclude Include="src\Application\Application.h" />
+    <ClInclude Include="src\Engine\ECS\Components\Camera.h" />
+    <ClInclude Include="src\Engine\ECS\Components\CameraController.h" />
+    <ClInclude Include="src\Engine\ECS\Components\DefaultComponents.h" />
+    <ClInclude Include="src\Engine\ECS\Components\Light.h" />
+    <ClInclude Include="src\Engine\ECS\Components\Material.h" />
+    <ClInclude Include="src\Engine\ECS\Components\MeshRenderer.h" />
+    <ClInclude Include="src\Engine\ECS\Components\NativeBehavior.h" />
+    <ClInclude Include="src\Engine\ECS\Components\SpriteRenderer.h" />
+    <ClInclude Include="src\Engine\ECS\Components\Tag.h" />
+    <ClInclude Include="src\Engine\ECS\Components\Transform.h" />
+    <ClInclude Include="src\Engine\ECS\Entity\Behavior.h" />
+    <ClInclude Include="src\Engine\ECS\Entity\Entity.h" />
+    <ClInclude Include="src\Engine\ECS\Entity\DefaultBehavior.h" />
+    <ClInclude Include="src\Engine\Event\ApplicationEvents.h" />
+    <ClInclude Include="src\Engine\Event\Event.h" />
+    <ClInclude Include="src\Engine\Event\KeyEvent.h" />
+    <ClInclude Include="src\Engine\Event\MouseEvents.h" />
+    <ClInclude Include="src\Engine\Graphics\assets\Cubemap.h" />
+    <ClInclude Include="src\Engine\Graphics\assets\Mesh.h" />
+    <ClInclude Include="src\Engine\Graphics\assets\Model.h" />
+    <ClInclude Include="src\Engine\Graphics\assets\Shader.h" />
+    <ClInclude Include="src\Engine\Graphics\assets\Skybox.h" />
+    <ClInclude Include="src\Engine\Graphics\assets\Texture.h" />
+    <ClInclude Include="src\Engine\Graphics\buffers\Framebuffer.h" />
+    <ClInclude Include="src\Engine\Graphics\buffers\IndexBuffer.h" />
+    <ClInclude Include="src\Engine\Graphics\buffers\VertexArray.h" />
+    <ClInclude Include="src\Engine\Graphics\buffers\VertexBuffer.h" />
+    <ClInclude Include="src\Engine\Graphics\cameras\Camera.h" />
+    <ClInclude Include="src\Engine\Graphics\renderers\RenderAPI.h" />
+    <ClInclude Include="src\Engine\Graphics\renderers\RenderCommand.h" />
+    <ClInclude Include="src\Engine\Graphics\renderers\Renderer3D.h" />
+    <ClInclude Include="src\Engine\Input\Input.h" />
+    <ClInclude Include="src\Engine\Input\KeyCodes.h" />
+    <ClInclude Include="src\Engine\Scene\Scene.h" />
+    <ClInclude Include="src\Engine\Scene\SceneSerializer.h" />
+    <ClInclude Include="src\Engine\Time\TimeStep.h" />
+    <ClInclude Include="src\Engine\UI\DWindow.h" />
+    <ClInclude Include="src\Engine\Utils\PlatformUtils.h" />
+    <ClInclude Include="src\Engine\Window\Window.h" />
+    <ClInclude Include="src\Engine\layers\Layer.h" />
+    <ClInclude Include="src\Engine\layers\LayerStack.h" />
+    <ClInclude Include="src\Engine\layers\engine\ImGuiLayer.h" />
+    <ClInclude Include="src\Platform\ImGui\ImGuiBuild.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLBuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLCubemap.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLFramebuffer.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLRenderAPI.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLShaderProgram.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLTexture.h" />
+    <ClInclude Include="src\Platform\OpenGL\OpenGLVertexArray.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\core\Debugging\Logger.cpp" />
-    <ClCompile Include="src\core\Application\Application.cpp" />
-    <ClCompile Include="src\core\Entry\Entry.cpp" />
+    <ClCompile Include="dependencies\glad\glad.c" />
+    <ClCompile Include="dependencies\imgui\imgui.cpp" />
+    <ClCompile Include="dependencies\imgui\imgui_demo.cpp" />
+    <ClCompile Include="dependencies\imgui\imgui_draw.cpp" />
+    <ClCompile Include="dependencies\imgui\imgui_impl_glfw.cpp" />
+    <ClCompile Include="dependencies\imgui\imgui_impl_opengl3.cpp" />
+    <ClCompile Include="dependencies\imgui\imgui_tables.cpp" />
+    <ClCompile Include="dependencies\imgui\imgui_widgets.cpp" />
+    <ClCompile Include="dependencies\imgui\misc\cpp\imgui_stdlib.cpp" />
+    <ClCompile Include="dependencies\imguizmo\ImCurveEdit.cpp" />
+    <ClCompile Include="dependencies\imguizmo\ImGradient.cpp" />
+    <ClCompile Include="dependencies\imguizmo\ImGuizmo.cpp" />
+    <ClCompile Include="dependencies\imguizmo\ImSequencer.cpp" />
+    <ClCompile Include="dependencies\stbi_image\stbi_image.cpp" />
+    <ClCompile Include="src\Application\Application.cpp" />
+    <ClCompile Include="src\Engine\ECS\Entity\DefaultBehavior.cpp" />
+    <ClCompile Include="src\Engine\Entry\Entry.cpp" />
+    <ClCompile Include="src\Engine\Event\Event.cpp" />
+    <ClCompile Include="src\Engine\Graphics\assets\Cubemap.cpp" />
+    <ClCompile Include="src\Engine\Graphics\assets\Mesh.cpp" />
+    <ClCompile Include="src\Engine\Graphics\assets\Model.cpp" />
+    <ClCompile Include="src\Engine\Graphics\assets\Shader.cpp" />
+    <ClCompile Include="src\Engine\Graphics\assets\Skybox.cpp" />
+    <ClCompile Include="src\Engine\Graphics\assets\Texture.cpp" />
+    <ClCompile Include="src\Engine\Graphics\buffers\Framebuffer.cpp" />
+    <ClCompile Include="src\Engine\Graphics\buffers\IndexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Graphics\buffers\VertexArray.cpp" />
+    <ClCompile Include="src\Engine\Graphics\buffers\VertexBuffer.cpp" />
+    <ClCompile Include="src\Engine\Graphics\cameras\Camera.cpp" />
+    <ClCompile Include="src\Engine\Graphics\renderers\RenderAPI.cpp" />
+    <ClCompile Include="src\Engine\Graphics\renderers\RenderCommand.cpp" />
+    <ClCompile Include="src\Engine\Graphics\renderers\Renderer3D.cpp" />
+    <ClCompile Include="src\Engine\Input\Input.cpp" />
+    <ClCompile Include="src\Engine\Scene\Scene.cpp" />
+    <ClCompile Include="src\Engine\Scene\SceneSerializer.cpp" />
+    <ClCompile Include="src\Engine\Time\TimeStep.cpp" />
+    <ClCompile Include="src\Engine\UI\DWindow.cpp" />
+    <ClCompile Include="src\Engine\Utils\PlatformUtils.cpp" />
+    <ClCompile Include="src\Engine\Window\Window.cpp" />
+    <ClCompile Include="src\Engine\layers\LayerStack.cpp" />
+    <ClCompile Include="src\Engine\layers\engine\ImGuiLayer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLBuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLCubemap.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLFramebuffer.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLRenderAPI.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLShaderProgram.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLTexture.cpp" />
+    <ClCompile Include="src\Platform\OpenGL\OpenGLVertexArray.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

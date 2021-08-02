@@ -24,7 +24,7 @@ workspace "Arcana Tools"
 --  
 project "Arcana"
     location "Arcana"
-    kind "windowedApp"
+    kind "consoleapp"
     language "c++"
     
     targetdir "bin/%{cfg.buildcfg}-%{cfg.buildsystem}-x64/%{prj.name}"
@@ -60,15 +60,9 @@ project "Arcana"
     links {
         "Engine",
         "ArcaneLab",
-        -- OpenGL
         "opengl32.lib",
-        -- Vulkan
-        
-        -- Direct X
-        -- 11
-
-        -- 12
-        -- "yaml-cppd.lib"
+        "glfw3.lib",
+        "yaml-cppd.lib"
 
     }
     defines{
@@ -103,7 +97,6 @@ project "Arcana"
         optimize "on"
         symbols "off"
         buildoptions "/MD"
-
     
 -- Engine
 --
@@ -127,23 +120,16 @@ project "Engine"
 
     includedirs {
         "%{prj.name}/src/",
-
-        "%{prj.name}/dependencies/",
         "dependencies/include/",
+        "%{prj.name}/dependencies/"
     }
     libdirs{
         "dependencies/lib/"
     }
     links {
-        -- OpenGL
         "opengl32.lib",
-        -- Vulkan
-        
-        -- Direct X
-        -- 11
-
-        -- 12
-        -- "yaml-cppd.lib"
+        "glfw3.lib",
+        "yaml-cppd.lib"
     }
     filter "system:windows"
         cppdialect "c++latest"
@@ -151,8 +137,7 @@ project "Engine"
         systemversion "latest"
 
         defines {
-            "WIN32",
-            "ARCANA_ENGINE"
+            "WIN32"
         }
     filter "configurations:Debug"
         defines { 
@@ -177,6 +162,9 @@ project "Engine"
         optimize "on"
         symbols "off"
         buildoptions "/MD"
+
+
+
 
 
 -- ArcaneLabratory
@@ -209,15 +197,10 @@ project "ArcaneLab"
     }
     links {
         "Engine",   
-        -- OpenGL
-        "opengl32.lib",
-        -- Vulkan
-        
-        -- Direct X
-        -- 11
 
-        -- 12
-        -- "yaml-cppd.lib"
+        "opengl32.lib",
+        "glfw3.lib",
+        "yaml-cppd.lib"
     }
     filter "system:windows"
         cppdialect "c++latest"
