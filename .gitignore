@@ -31,10 +31,18 @@
 *.out
 *.app
 
-# solutions
+# solutions && visual studio files
 **.sln
-bin/**
 .vs/**
+**.vcxproj
+**.vcxproj.filters
+**.vcxproj.user
 
+# binaries
+bin/**
+
+# Test Outlines
 Arcana/Outlines/**
+
+
 
